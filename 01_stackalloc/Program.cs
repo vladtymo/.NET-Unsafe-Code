@@ -62,9 +62,10 @@ namespace _01_stackalloc
         static void Main(string[] args)
         {
             // unsafe block allow use a pointers (* & ->)
+
             unsafe
             {
-                ////// pointer to base type
+                //// pointer to base type
                 //int num = 10;
                 //int* pointer = &num;
                 //Console.WriteLine("Address: " + (int)pointer);
@@ -90,7 +91,7 @@ namespace _01_stackalloc
                 //    //*(arr + i) = i * i;
                 //}
 
-                //*(arr + 100000) = 0; // error
+                //*(arr + 10000) = 0; // error
 
                 //for (int* ptr = arr; ptr < arr + size; ptr++)
                 //{
@@ -100,13 +101,13 @@ namespace _01_stackalloc
                 //////// invoke unsafe method
                 //int* arr = UnsafeMethod();
 
-                //// return pointer to an array
+                // return pointer to an array
                 int* arr = GenerateArr(out int size);
 
                 // fixed block closed, array can be destroyed
                 GC.Collect();
 
-                for (int i = 0; i < size; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     Console.Write(arr[i] + " ");
                 }

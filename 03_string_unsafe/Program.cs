@@ -17,7 +17,7 @@ namespace _03_string_unsafe
 
             ReverseString(str);
             //str = str.Replace('a', '-');
-
+            
             Console.WriteLine("Reversed!");
             Console.WriteLine("It's a imutable string");
 
