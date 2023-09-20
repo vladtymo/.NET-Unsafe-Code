@@ -36,7 +36,7 @@ namespace _01_stackalloc
         unsafe static int* GenerateArr(out int size)
         {
             Random rnd = new Random();
-            size = rnd.Next(20);
+            size = rnd.Next(10, 20);
             int[] arr = new int[size];
             //int* arr = stackalloc int[size];
 
@@ -47,6 +47,8 @@ namespace _01_stackalloc
                 {
                     *p = rnd.Next(100);
                 }
+
+                //GC.Collect();
 
                 for (int i = 0; i < size; i++)
                 {
@@ -63,14 +65,15 @@ namespace _01_stackalloc
             unsafe
             {
                 ////// pointer to base type
-                int num = 10;
-                int* pointer = &num;
-                Console.WriteLine("Address: " + (int)pointer);
-                Console.WriteLine("Value: " + *pointer);
+                //int num = 10;
+                //int* pointer = &num;
+                //Console.WriteLine("Address: " + (int)pointer);
+                //Console.WriteLine("Value: " + *pointer);
 
                 //////////////// pointer to struct
                 //Unsafe @unsafe = new Unsafe();
                 //Unsafe* strPtr = &@unsafe;
+
                 //(*strPtr).Pointer = &num;
                 //strPtr->Pointer = &num;
                 //Console.WriteLine(*@unsafe.Pointer);
@@ -83,8 +86,8 @@ namespace _01_stackalloc
 
                 //for (int i = 0; i < size; i++)
                 //{
-                //    //arr[i] = i * i;
-                //    *(arr + i) = i * i;
+                //    arr[i] = i * i;
+                //    //*(arr + i) = i * i;
                 //}
 
                 //*(arr + 100000) = 0; // error
@@ -100,7 +103,10 @@ namespace _01_stackalloc
                 //// return pointer to an array
                 int* arr = GenerateArr(out int size);
 
-                for (int i = 0; i < 10; i++)
+                // fixed block closed, array can be destroyed
+                GC.Collect();
+
+                for (int i = 0; i < size; i++)
                 {
                     Console.Write(arr[i] + " ");
                 }

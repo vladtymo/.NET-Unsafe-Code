@@ -30,7 +30,7 @@ namespace _02_fixed
                 Person person = new Person();
                 person.age = 28;
                 person.height = 178;
-            
+
                 // fixed block
                 fixed (int* p = &person.age)
                 {
@@ -39,6 +39,7 @@ namespace _02_fixed
                         *p = 30;
                     }
                 }
+
                 Console.WriteLine(person.age); // 30
             }
 
@@ -46,6 +47,7 @@ namespace _02_fixed
             {
                 int[] nums = { 0, 1, 2, 3, 7, 88 };
                 string str = "Hello world";
+
                 fixed (int* p = nums)
                 {
                     int third = *(p + 2);       // get 3-th element

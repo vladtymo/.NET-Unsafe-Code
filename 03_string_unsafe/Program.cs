@@ -10,11 +10,14 @@ namespace _03_string_unsafe
     {
         static void Main(string[] args)
         {
-            string str = "It's a imutable string";
+            string str = "It's a imutable string"; // new object
             string copy = str;
 
             Console.WriteLine("It's a imutable string");
+
             ReverseString(str);
+            //str = str.Replace('a', '-');
+
             Console.WriteLine("Reversed!");
             Console.WriteLine("It's a imutable string");
 
@@ -23,27 +26,36 @@ namespace _03_string_unsafe
 
             if (str == copy)
                 Console.WriteLine("str == copy");
+
             if (str == "It's a imutable string")
                 Console.WriteLine("str == It's a imutable string");
+
             if (str == "gnirts elbatumi a s'tI")
                 Console.WriteLine("str == gnirts elbatumi a s'tI");
+
             if (string.ReferenceEquals("It's a imutable string", "gnirts elbatumi a s'tI"))
                 Console.WriteLine("const Reference is Equals reversed const!");
+
             if (string.ReferenceEquals("It's a imutable string", str))
                 Console.WriteLine("const Reference is Equals str!");
+
             if (string.Equals("It's a imutable string", "gnirts elbatumi a s'tI"))
                 Console.WriteLine("const Is Equals const!");
+
             if (string.Equals("It's a imutable string", str))
                 Console.WriteLine("const Is Equals str!");
+
             if ("It's a imutable string" == str)
                 Console.WriteLine("const == str");
+
             if ("gnirts elbatumi a s'tI" == str)
                 Console.WriteLine("reversed const == str");
+
             if (string.Equals("It's a imutable string", "gnirts elbatumi a s'tI"))
                 Console.WriteLine("reversed const Is Equals const");
+
             if ("It's a imutable string" == "gnirts elbatumi a s'tI")
                 Console.WriteLine("reversed const == const");
-
         }
         static unsafe void ReverseString(string str)
         {
