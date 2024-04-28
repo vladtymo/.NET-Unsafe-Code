@@ -15,9 +15,10 @@ namespace _03_string_unsafe
 
             Console.WriteLine("It's a imutable string");
 
+            //str = "gnirts elbatumi a s'tI";
             ReverseString(str);
             //str = str.Replace('a', '-');
-            
+
             Console.WriteLine("Reversed!");
             Console.WriteLine("It's a imutable string");
 

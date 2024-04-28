@@ -65,11 +65,11 @@ namespace _01_stackalloc
 
             unsafe
             {
-                //// pointer to base type
                 //int num = 10;
                 //int* pointer = &num;
                 //Console.WriteLine("Address: " + (int)pointer);
                 //Console.WriteLine("Value: " + *pointer);
+                //// pointer to base type
 
                 //////////////// pointer to struct
                 //Unsafe @unsafe = new Unsafe();
@@ -91,7 +91,7 @@ namespace _01_stackalloc
                 //    //*(arr + i) = i * i;
                 //}
 
-                //*(arr + 10000) = 0; // error
+                ////*(arr + 1000) = 0; // error
 
                 //for (int* ptr = arr; ptr < arr + size; ptr++)
                 //{
